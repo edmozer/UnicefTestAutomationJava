@@ -66,19 +66,22 @@ public class HomeUnicefPage extends BasePage {
         }
     }
 
-    public void clickChildProtectionLink(String expectedUrl) throws InterruptedException {
+    public void clickChildProtectionLink(String elementToClick, String expectedUrl) throws InterruptedException {
+        // Convert elementToClick from String to int
+        int elementIndex = Integer.parseInt(elementToClick);
+
         List<WebElement> allAreasLinks = driver.findElements(whatWeDoLinks);
 
-        if (allAreasLinks.size() >= 2) {
-            allAreasLinks.get(2).click();
+        if (elementIndex >= 1 && elementIndex <= allAreasLinks.size()) {
+            allAreasLinks.get(elementIndex - 1).click(); // Adjust index to start from 0
             Thread.sleep(500);
-            String currentUrl2 = driver.getCurrentUrl();
-            Assert.assertEquals(expectedUrl, currentUrl2);
+            String currentUrl = driver.getCurrentUrl();
+            Assert.assertEquals(expectedUrl, currentUrl);
         } else {
-
-            System.err.println("Error: Url doesn't match");
+            System.err.println("Error: Element index out of bounds or URL doesn't match");
         }
     }
+
 
     public void childRightsLink() {
         List<WebElement> allAreasLinks = driver.findElements(whatWeDoLinks);

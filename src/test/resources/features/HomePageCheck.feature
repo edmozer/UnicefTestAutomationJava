@@ -23,8 +23,11 @@ Feature: Check if home page and elements load correctly
   Scenario Outline: 05 - Checks if other links on What we do Section are working
     Given The worldwide home page is loaded
     When the user goes into the what we do section
-    Then all the other links should lead to the "<desired page>"
+    Then all the other links should lead to the "<element_to_click>" and "<desired_page>"
 
     Examples:
-      | desired page                                            |
-      | https://www.unicef.org/child-protection |
+      | element_to_click | desired_page                                          |
+      | 3                | https://www.unicef.org/child-protection               |
+      | 4                | https://www.unicef.org/disabilities                   |
+      | 5                | https://www.unicef.org/environment-and-climate-change |
+      | 6                | https://www.unicef.org/coronavirus/covid-19           |
