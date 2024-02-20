@@ -12,7 +12,6 @@ public class DonateSteps extends BaseSteps {
     @Given("The worldwide home page is loaded")
     public void the_worldwide_home_page_is_loaded() {
         homePage.GetHomePage();
-
     }
 
     @When("the user clicks on donate and gets redirected")
