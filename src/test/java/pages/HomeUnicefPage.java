@@ -9,6 +9,8 @@ import runner.base_class.BasePage;
 
 import org.openqa.selenium.interactions.Actions;
 
+import java.util.List;
+
 public class HomeUnicefPage extends BasePage {
 
 
@@ -19,7 +21,7 @@ public class HomeUnicefPage extends BasePage {
 
     private By whatWeDoSection = By.cssSelector("a.dropdown-toggle.is-parent-item > span");
 
-    private By allAreasLink = By.cssSelector("ul > li > ul > li > a > span:nth-child(1)");
+    private By whatWeDoLinks = By.cssSelector("ul > li > ul > li > a > span:nth-child(1)");
 
 
 
@@ -45,10 +47,30 @@ public class HomeUnicefPage extends BasePage {
     }
 
     public void clickAllAreasLink() throws InterruptedException {
-        driver.findElement(allAreasLink).click();
+        driver.findElement(whatWeDoLinks).click();
         String currentUrl = driver.getCurrentUrl();
         Assert.assertEquals("https://www.unicef.org/what-we-do", currentUrl);
+    }
 
+    public void clickAdolescentsLink() throws InterruptedException {
+        // Find all matching elements for the CSS selector
+        List<WebElement> allAreasLinks = driver.findElements(whatWeDoLinks);
+
+        // Check if there are at least two matching elements
+        if (allAreasLinks.size() >= 2) {
+            // Click on the second matching element
+            allAreasLinks.get(1).click();
+
+            // Wait for the page to load
+            Thread.sleep(2000); // Adjust the sleep time as needed
+
+            // Verify if the current URL matches the expected URL
+            String currentUrl = driver.getCurrentUrl();
+            Assert.assertEquals("https://www.unicef.org/adolescence", currentUrl);
+        } else {
+            // Log an error if there are not enough matching elements
+            System.err.println("Error: Not enough matching elements.");
+        }
     }
     public boolean isPressCentreButtonClickable() {
         try {

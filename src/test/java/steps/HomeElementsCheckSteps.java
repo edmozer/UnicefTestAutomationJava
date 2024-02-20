@@ -27,4 +27,9 @@ public class HomeElementsCheckSteps extends BaseSteps {
     public void the_all_areas_link_should_be_working_fine() throws InterruptedException {
         homePage.clickAllAreasLink();
     }
+
+    @Then("the adolescents link should be working fine")
+    public void the_adolescents_link_should_be_working_fine() throws InterruptedException {
+        homePage.clickAdolescentsLink();
+    }
 }

@@ -14,3 +14,8 @@ Feature: Check if home page and elements load correctly
     Given The worldwide home page is loaded
     When the user goes into the what we do section
     Then the all areas link should be working fine
+
+  Scenario: 04 - Adolescents link is working
+    Given The worldwide home page is loaded
+    When the user goes into the what we do section
+    Then the adolescents link should be working fine
