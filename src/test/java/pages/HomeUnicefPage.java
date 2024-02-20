@@ -53,25 +53,47 @@ public class HomeUnicefPage extends BasePage {
     }
 
     public void clickAdolescentsLink() throws InterruptedException {
-        // Find all matching elements for the CSS selector
         List<WebElement> allAreasLinks = driver.findElements(whatWeDoLinks);
 
-        // Check if there are at least two matching elements
         if (allAreasLinks.size() >= 2) {
-            // Click on the second matching element
             allAreasLinks.get(1).click();
-
-            // Wait for the page to load
-            Thread.sleep(2000); // Adjust the sleep time as needed
-
-            // Verify if the current URL matches the expected URL
+            Thread.sleep(500);
             String currentUrl = driver.getCurrentUrl();
             Assert.assertEquals("https://www.unicef.org/adolescence", currentUrl);
         } else {
-            // Log an error if there are not enough matching elements
-            System.err.println("Error: Not enough matching elements.");
+
+            System.err.println("Error: Url doesn't match");
         }
     }
+
+    public void clickChildProtectionLink(String expectedUrl) throws InterruptedException {
+        List<WebElement> allAreasLinks = driver.findElements(whatWeDoLinks);
+
+        if (allAreasLinks.size() >= 2) {
+            allAreasLinks.get(2).click();
+            Thread.sleep(500);
+            String currentUrl2 = driver.getCurrentUrl();
+            Assert.assertEquals(expectedUrl, currentUrl2);
+        } else {
+
+            System.err.println("Error: Url doesn't match");
+        }
+    }
+
+    public void childRightsLink() {
+        List<WebElement> allAreasLinks = driver.findElements(whatWeDoLinks);
+
+        if (allAreasLinks.size() >= 2) {
+            allAreasLinks.get(3).click();
+            String currentUrl3 = driver.getCurrentUrl();
+            Assert.assertEquals("https://www.unicef.org/child-rights-convention", currentUrl3);
+        } else {
+
+            System.err.println("Error: Url doesn't match");
+        }
+    }
+
+
     public boolean isPressCentreButtonClickable() {
         try {
             WebDriverWait wait = new WebDriverWait(driver, 10);

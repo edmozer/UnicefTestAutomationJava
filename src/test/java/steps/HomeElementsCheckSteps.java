@@ -32,4 +32,9 @@ public class HomeElementsCheckSteps extends BaseSteps {
     public void the_adolescents_link_should_be_working_fine() throws InterruptedException {
         homePage.clickAdolescentsLink();
     }
+
+    @Then("all the other links should lead to the {string}")
+    public void all_the_other_links_should_lead_to(String desiredPage) throws InterruptedException {
+        homePage.clickChildProtectionLink(desiredPage);
+    }
 }

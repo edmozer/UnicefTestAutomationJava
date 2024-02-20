@@ -19,3 +19,12 @@ Feature: Check if home page and elements load correctly
     Given The worldwide home page is loaded
     When the user goes into the what we do section
     Then the adolescents link should be working fine
+
+  Scenario Outline: 05 - Checks if other links on What we do Section are working
+    Given The worldwide home page is loaded
+    When the user goes into the what we do section
+    Then all the other links should lead to the "<desired page>"
+
+    Examples:
+      | desired page                                            |
+      | https://www.unicef.org/child-protection |
