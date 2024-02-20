@@ -48,6 +48,7 @@ public class HomeUnicefPage extends BasePage {
 
     public void clickAllAreasLink() throws InterruptedException {
         driver.findElement(whatWeDoLinks).click();
+        Thread.sleep(500);
         String currentUrl = driver.getCurrentUrl();
         Assert.assertEquals("https://www.unicef.org/what-we-do", currentUrl);
     }
@@ -66,15 +67,15 @@ public class HomeUnicefPage extends BasePage {
         }
     }
 
-    public void clickChildProtectionLink(String elementToClick, String expectedUrl) throws InterruptedException {
+    public void WhatWeDoOtherLinks(String elementToClick, String expectedUrl) throws InterruptedException {
         // Convert elementToClick from String to int
         int elementIndex = Integer.parseInt(elementToClick);
 
         List<WebElement> allAreasLinks = driver.findElements(whatWeDoLinks);
 
         if (elementIndex >= 1 && elementIndex <= allAreasLinks.size()) {
-            allAreasLinks.get(elementIndex - 1).click(); // Adjust index to start from 0
-            Thread.sleep(500);
+            allAreasLinks.get(elementIndex - 1).click();
+            Thread.sleep(300);
             String currentUrl = driver.getCurrentUrl();
             Assert.assertEquals(expectedUrl, currentUrl);
         } else {

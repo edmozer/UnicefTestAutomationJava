@@ -28,6 +28,6 @@ Feature: Check if home page and elements load correctly
     Examples:
       | element_to_click | desired_page                                          |
       | 3                | https://www.unicef.org/child-protection               |
-      | 4                | https://www.unicef.org/disabilities                   |
-      | 5                | https://www.unicef.org/environment-and-climate-change |
-      | 6                | https://www.unicef.org/coronavirus/covid-19           |
+      | 5                | https://www.unicef.org/disabilities                   |
+      | 6                | https://www.unicef.org/environment-and-climate-change |
+      | 7                | https://www.unicef.org/coronavirus/covid-19           |

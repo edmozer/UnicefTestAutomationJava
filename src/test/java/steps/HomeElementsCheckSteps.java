@@ -35,7 +35,7 @@ public class HomeElementsCheckSteps extends BaseSteps {
 
     @Then("all the other links should lead to the {string} and {string}")
     public void all_the_other_links_should_lead_to(String elementToClick, String desiredPage) throws InterruptedException {
-        homePage.clickChildProtectionLink(elementToClick, desiredPage);
+        homePage.WhatWeDoOtherLinks(elementToClick, desiredPage);
     }
 
 
