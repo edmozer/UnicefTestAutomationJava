@@ -53,6 +53,10 @@ public class HomeElementsCheckSteps extends BaseSteps {
         homePage.hoverAboutUnicefSection();
     }
 
+    @When("the user goes into Take Action section")
+    public void the_user_goes_into_take_action_section() throws InterruptedException {
+       homePage.hoverTakeActionSection();
+    }
 
 
 

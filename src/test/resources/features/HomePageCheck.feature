@@ -122,6 +122,21 @@ Feature: Check if home page and elements load correctly
 
 
 
+  Scenario Outline: 09 - Checks if links on Take Action section are working fine
+    Given The worldwide home page is loaded
+    When the user goes into Take Action section
+    Then when "<element>" is clicked it should lead to "<desired_page>"
+
+    Examples:
+      | element | desired_page                                                      |
+      | 86      | https://www.unicef.org/careers/                              |
+    | 87      | https://www.unicef.org/partnerships                          |
+    | 89      | https://www.unicef.org/careers/volunteers-unicef             |
+    | 90      | https://www.unicef.org/world-childrens-day                   |
+    | 91      | https://www.unicef.org/climate-action                        |
+    | 92      | https://www.unicef.org/on-my-mind                            |
+    | 93      | https://www.unicef.org/learning-crisis                       |
+    | 94      | https://www.unicef.org/child-health-and-survival             |
 
 
 

@@ -25,6 +25,8 @@ public class HomeUnicefPage extends BasePage {
 
     private By whatWeDoLinks = By.cssSelector("ul > li > ul > li > a > span:nth-child(1)");
 
+    private  By searchButton = By.className("a.btn-txt-search");
+
 
 
 
@@ -63,6 +65,13 @@ public class HomeUnicefPage extends BasePage {
 
     public void hoverAboutUnicefSection() throws InterruptedException {
         WebElement element = driver.findElements(whatWeDoSection).get(3);
+        Thread.sleep(200);
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element).build().perform();
+    }
+
+    public void hoverTakeActionSection() throws InterruptedException {
+        WebElement element = driver.findElements(whatWeDoSection).get(4);
         Thread.sleep(200);
         Actions actions = new Actions(driver);
         actions.moveToElement(element).build().perform();

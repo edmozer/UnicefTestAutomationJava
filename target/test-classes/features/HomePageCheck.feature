@@ -100,28 +100,43 @@ Feature: Check if home page and elements load correctly
     Then when "<element>" is clicked it should lead to "<desired_page>"
 
     Examples:
-      | element | desired_page                                                                  |
-      | 66      | https://www.unicef.org/about-unicef                                           |
-      | 67      | https://www.unicef.org/history                                            |
-    | 68      | https://www.unicef.org/results                                            |
-    | 69      | https://www.unicef.org/reports/unicef-strategic-plan-2022-2025            |
-    | 70      | https://www.unicef.org/transparency                                       |
-    | 71      | https://www.unicef.org/auditandinvestigation/                             |
-    | 72      | https://www.unicef.org/careers/                                           |
-    | 73      | https://www.unicef.org/media/experts                                      |
-    | 74      | https://www.unicef.org/executiveboard/                                    |
-    | 75      | https://www.unicef.org/goodwill-ambassadors                               |
-    | 76      | https://www.unicef.org/where-we-work                                      |
-    | 77      | https://www.unicef.org/where-we-work#east-asia-and-the-pacific            |
-    | 78      | https://www.unicef.org/where-we-work#eastern-and-southern-africa          |
-    | 79      | https://www.unicef.org/where-we-work#europe-and-central-asia              |
-    | 80      | https://www.unicef.org/where-we-work#latin-america-and-caribbean          |
-    | 81      | https://www.unicef.org/where-we-work#middle-east-and-north-africa         |
-    | 82      | https://www.unicef.org/where-we-work#south-asia                           |
-    | 83      | https://www.unicef.org/where-we-work#west-and-central-africa              |
+      | element | desired_page                                                      |
+      | 66      | https://www.unicef.org/about-unicef                               |
+      | 67      | https://www.unicef.org/history                                    |
+      | 68      | https://www.unicef.org/results                                    |
+      | 69      | https://www.unicef.org/reports/unicef-strategic-plan-2022-2025    |
+      | 70      | https://www.unicef.org/transparency                               |
+      | 71      | https://www.unicef.org/auditandinvestigation/                     |
+      | 72      | https://www.unicef.org/careers/                                   |
+      | 73      | https://www.unicef.org/media/experts                              |
+      | 74      | https://www.unicef.org/executiveboard/                            |
+      | 75      | https://www.unicef.org/goodwill-ambassadors                       |
+      | 76      | https://www.unicef.org/where-we-work                              |
+      | 77      | https://www.unicef.org/where-we-work#east-asia-and-the-pacific    |
+      | 78      | https://www.unicef.org/where-we-work#eastern-and-southern-africa  |
+      | 79      | https://www.unicef.org/where-we-work#europe-and-central-asia      |
+      | 80      | https://www.unicef.org/where-we-work#latin-america-and-caribbean  |
+      | 81      | https://www.unicef.org/where-we-work#middle-east-and-north-africa |
+      | 82      | https://www.unicef.org/where-we-work#south-asia                   |
+      | 83      | https://www.unicef.org/where-we-work#west-and-central-africa      |
 
 
 
+  Scenario Outline: 09 - Checks if links on Take Action section are working fine
+    Given The worldwide home page is loaded
+    When the user goes into Take Action section
+    Then when "<element>" is clicked it should lead to "<desired_page>"
+
+    Examples:
+      | element | desired_page                                                      |
+      | 86      | https://www.unicef.org/careers/                              |
+    | 87      | https://www.unicef.org/partnerships                          |
+    | 89      | https://www.unicef.org/careers/volunteers-unicef             |
+    | 90      | https://www.unicef.org/world-childrens-day                   |
+    | 91      | https://www.unicef.org/climate-action                        |
+    | 92      | https://www.unicef.org/on-my-mind                            |
+    | 93      | https://www.unicef.org/learning-crisis                       |
+    | 94      | https://www.unicef.org/child-health-and-survival             |
 
 
 
