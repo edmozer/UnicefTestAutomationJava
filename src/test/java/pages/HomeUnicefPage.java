@@ -106,7 +106,6 @@ public class HomeUnicefPage extends BasePage {
     }
 
     public void otherLinks(String elementToClick, String expectedUrl) throws InterruptedException {
-        // Convert elementToClick from String to int
         int elementIndex = Integer.parseInt(elementToClick);
 
         List<WebElement> allAreasLinks = driver.findElements(whatWeDoLinks);
@@ -158,14 +157,13 @@ public class HomeUnicefPage extends BasePage {
 
     public  void clickSearchButton() throws InterruptedException {
         driver.findElement(searchButton).click();
-        Thread.sleep(500);
+        Thread.sleep(200);
     }
 
     public void insertDatainSearchInput() throws InterruptedException {
         driver.findElement(searchInput).sendKeys("Brazil");
-        Thread.sleep(500);
+        Thread.sleep(100);
         driver.findElement(searchInput).sendKeys(Keys.ENTER);
-        Thread.sleep(500);
     }
 
     public boolean doesSearchContainResults() {
