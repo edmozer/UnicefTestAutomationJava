@@ -54,8 +54,16 @@ public class HomeUnicefPage extends BasePage {
         actions.moveToElement(element).build().perform();
     }
 
-    public void hoverStoriesSection(){
-        WebElement element = driver.findElements(whatWeDoSection).get(1);
+    public void hoverStoriesSection() throws InterruptedException {
+        WebElement element = driver.findElements(whatWeDoSection).get(2);
+        Thread.sleep(200);
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element).build().perform();
+    }
+
+    public void hoverAboutUnicefSection() throws InterruptedException {
+        WebElement element = driver.findElements(whatWeDoSection).get(3);
+        Thread.sleep(200);
         Actions actions = new Actions(driver);
         actions.moveToElement(element).build().perform();
     }
@@ -82,7 +90,7 @@ public class HomeUnicefPage extends BasePage {
         }
     }
 
-    public void WhatWeDoOtherLinks(String elementToClick, String expectedUrl) throws InterruptedException {
+    public void otherLinks(String elementToClick, String expectedUrl) throws InterruptedException {
         // Convert elementToClick from String to int
         int elementIndex = Integer.parseInt(elementToClick);
 
@@ -90,7 +98,7 @@ public class HomeUnicefPage extends BasePage {
 
         if (elementIndex >= 1 && elementIndex <= allAreasLinks.size()) {
             allAreasLinks.get(elementIndex - 1).click();
-            Thread.sleep(300);
+            Thread.sleep(400);
             String currentUrl = driver.getCurrentUrl();
             Assert.assertEquals(expectedUrl, currentUrl);
         } else {

@@ -35,12 +35,22 @@ public class HomeElementsCheckSteps extends BaseSteps {
 
     @Then("when {string} is clicked it should lead to {string}")
     public void all_the_other_links_should_lead_to(String elementToClick, String desiredPage) throws InterruptedException {
-        homePage.WhatWeDoOtherLinks(elementToClick, desiredPage);
+        homePage.otherLinks(elementToClick, desiredPage);
     }
 
     @When("the user goes into the research and reports section")
     public void the_user_goes_into_the_research_and_reports_section() {
         homePage.hoverResearchAndReportsSection();
+    }
+
+    @When("the user goes into stories section")
+    public void the_user_goes_into_stories_section() throws InterruptedException {
+        homePage.hoverStoriesSection();
+    }
+
+    @When("the user goes into About Unicef section")
+    public void the_user_goes_into_about_unicef_section() throws InterruptedException {
+        homePage.hoverAboutUnicefSection();
     }
 
 

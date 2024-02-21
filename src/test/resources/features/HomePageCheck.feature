@@ -74,11 +74,60 @@ Feature: Check if home page and elements load correctly
 
   Scenario Outline: 07 - Checks if links on Stories section are working fine
     Given The worldwide home page is loaded
-    When the user goes into the research and reports section
+    When the user goes into stories section
     Then when "<element>" is clicked it should lead to "<desired_page>"
 
     Examples:
-      | element | desired_page                                                              |
-      | 40      | https://www.unicef.org/reports/state-of-worlds-children                   |
+      | element | desired_page                                                                  |
+      | 51      | https://www.unicef.org/stories                                                |
+      | 52      | https://www.unicef.org/stories#facts                                          |
+      | 53      | https://www.unicef.org/stories#photo                                          |
+      | 54      | https://www.unicef.org/emergencies                                            |
+      | 55      | https://www.unicef.org/emergencies/delivering-support-afghanistans-children   |
+      | 57      | https://www.unicef.org/emergencies/rohingya-crisis                            |
+      | 58      | https://www.unicef.org/emergencies/emergency-response-sudan                   |
+      | 59      | https://www.unicef.org/emergencies/syrian-crisis                              |
+      | 60      | https://www.unicef.org/emergencies/war-ukraine-pose-immediate-threat-children |
+      | 61      | https://www.unicef.org/emergencies/yemen-crisis                               |
+      | 62      | https://www.unicef.org/blog                                                   |
+      | 63      | https://www.unicef-irc.org/evidence-for-action/                               |
+      | 65      | https://www.voicesofyouth.org/                                                |
+
+
+  Scenario Outline: 08 - Checks if links on About Unicef section are working fine
+    Given The worldwide home page is loaded
+    When the user goes into About Unicef section
+    Then when "<element>" is clicked it should lead to "<desired_page>"
+
+    Examples:
+      | element | desired_page                                                      |
+      | 66      | https://www.unicef.org/about-unicef                               |
+      | 67      | https://www.unicef.org/history                                    |
+      | 68      | https://www.unicef.org/results                                    |
+      | 69      | https://www.unicef.org/reports/unicef-strategic-plan-2022-2025    |
+      | 70      | https://www.unicef.org/transparency                               |
+      | 71      | https://www.unicef.org/auditandinvestigation/                     |
+      | 72      | https://www.unicef.org/careers/                                   |
+      | 73      | https://www.unicef.org/media/experts                              |
+      | 74      | https://www.unicef.org/executiveboard/                            |
+      | 75      | https://www.unicef.org/goodwill-ambassadors                       |
+      | 76      | https://www.unicef.org/where-we-work                              |
+      | 77      | https://www.unicef.org/where-we-work#east-asia-and-the-pacific    |
+      | 78      | https://www.unicef.org/where-we-work#eastern-and-southern-africa  |
+      | 79      | https://www.unicef.org/where-we-work#europe-and-central-asia      |
+      | 80      | https://www.unicef.org/where-we-work#latin-america-and-caribbean  |
+      | 81      | https://www.unicef.org/where-we-work#middle-east-and-north-africa |
+      | 82      | https://www.unicef.org/where-we-work#south-asia                   |
+      | 83      | https://www.unicef.org/where-we-work#west-and-central-africa      |
+
+
+
+
+
+
+
+
+
+
 
 
