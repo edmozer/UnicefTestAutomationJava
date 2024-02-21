@@ -2,6 +2,7 @@ package pages;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -25,7 +26,12 @@ public class HomeUnicefPage extends BasePage {
 
     private By whatWeDoLinks = By.cssSelector("ul > li > ul > li > a > span:nth-child(1)");
 
-    private  By searchButton = By.className("a.btn-txt-search");
+    private  By searchButton = By.className("btn--input-search");
+
+    private By searchInput = By.id("edit-query-inpt-pop");
+
+    private By numberOfResults = By.className("number-of-results");
+
 
 
 
@@ -150,5 +156,21 @@ public class HomeUnicefPage extends BasePage {
         }
     }
 
+    public  void clickSearchButton() throws InterruptedException {
+        driver.findElement(searchButton).click();
+        Thread.sleep(500);
+    }
 
+    public void insertDatainSearchInput() throws InterruptedException {
+        driver.findElement(searchInput).sendKeys("Brazil");
+        Thread.sleep(500);
+        driver.findElement(searchInput).sendKeys(Keys.ENTER);
+        Thread.sleep(500);
+    }
+
+    public boolean doesSearchContainResults() {
+        WebElement element = driver.findElement(numberOfResults);
+        String text = element.getText();
+        return text.contains("results");
+    }
 }

@@ -58,6 +58,13 @@ public class HomeElementsCheckSteps extends BaseSteps {
        homePage.hoverTakeActionSection();
     }
 
+    @When("the search button is clicked")
+    public void the_search_button_is_clicked() throws InterruptedException {
+        homePage.clickSearchButton();
+        homePage.insertDatainSearchInput();
+        homePage.doesSearchContainResults();
+    }
+
 
 
 

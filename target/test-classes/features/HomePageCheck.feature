@@ -138,7 +138,9 @@ Feature: Check if home page and elements load correctly
     | 93      | https://www.unicef.org/learning-crisis                       |
     | 94      | https://www.unicef.org/child-health-and-survival             |
 
-
+  Scenario: 10 - Click search button
+    Given The worldwide home page is loaded
+    When the search button is clicked
 
 
 
