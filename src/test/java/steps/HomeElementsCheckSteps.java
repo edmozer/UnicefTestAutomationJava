@@ -11,11 +11,13 @@ public class HomeElementsCheckSteps extends BaseSteps {
     @Then("the press centre button should be clickable")
     public void the_press_centre_is_clickable() {
         homePage.isPressCentreButtonClickable();
+        screenshot();
     }
 
     @Then("the donate button should be clickable")
     public void the_donate_button_is_clickable() {
         homePage.isDonateButtonClickable();
+        screenshot();
     }
 
     @When("the user goes into the what we do section")
@@ -26,6 +28,7 @@ public class HomeElementsCheckSteps extends BaseSteps {
     @Then("the all areas link should be working fine")
     public void the_all_areas_link_should_be_working_fine() throws InterruptedException {
         homePage.clickAllAreasLink();
+        screenshot();
     }
 
     @Then("the adolescents link should be working fine")
@@ -36,6 +39,7 @@ public class HomeElementsCheckSteps extends BaseSteps {
     @Then("when {string} is clicked it should lead to {string}")
     public void all_the_other_links_should_lead_to(String elementToClick, String desiredPage) throws InterruptedException {
         homePage.otherLinks(elementToClick, desiredPage);
+        screenshot();
     }
 
     @When("the user goes into the research and reports section")
@@ -58,14 +62,15 @@ public class HomeElementsCheckSteps extends BaseSteps {
        homePage.hoverTakeActionSection();
     }
 
-    @When("the search button is clicked")
+    @When("the search button is clicked and data is inserted")
     public void the_search_button_is_clicked() throws InterruptedException {
         homePage.clickSearchButton();
         homePage.insertDatainSearchInput();
-        homePage.doesSearchContainResults();
     }
 
-
-
-
+    @Then("the search should show results")
+    public void the_search_should_show_results() {
+        homePage.doesSearchContainResults();
+        screenshot();
+    }
 }

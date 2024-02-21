@@ -3,6 +3,7 @@ package pages;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -16,7 +17,6 @@ public class HomeUnicefPage extends BasePage {
 
 
     private By donateButton = By.cssSelector("a[data-label='Donate']");
-    private By closeAdButton = By.cssSelector("button[data-qa='global-close']");
 
     private By pressCentreButton = By.id("block-unicef-base-secondary-menu");
 
@@ -40,16 +40,6 @@ public class HomeUnicefPage extends BasePage {
         driver.get("https://www.unicef.org/");
     }
 
-    public void clickDonateButton() {
-        driver.findElement(donateButton).click();
-    }
-
-    public void clickCloseAdButton() throws InterruptedException {
-
-        Thread.sleep(3000);
-        driver.findElement(closeAdButton).click();
-    }
-
     public void hoverWhatWeDoSection(){
         WebElement element = driver.findElement(whatWeDoSection);
         Actions actions = new Actions(driver);
@@ -64,21 +54,21 @@ public class HomeUnicefPage extends BasePage {
 
     public void hoverStoriesSection() throws InterruptedException {
         WebElement element = driver.findElements(whatWeDoSection).get(2);
-        Thread.sleep(200);
+        Thread.sleep(100);
         Actions actions = new Actions(driver);
         actions.moveToElement(element).build().perform();
     }
 
     public void hoverAboutUnicefSection() throws InterruptedException {
         WebElement element = driver.findElements(whatWeDoSection).get(3);
-        Thread.sleep(200);
+        Thread.sleep(100);
         Actions actions = new Actions(driver);
         actions.moveToElement(element).build().perform();
     }
 
     public void hoverTakeActionSection() throws InterruptedException {
         WebElement element = driver.findElements(whatWeDoSection).get(4);
-        Thread.sleep(200);
+        Thread.sleep(100);
         Actions actions = new Actions(driver);
         actions.moveToElement(element).build().perform();
     }
@@ -86,7 +76,7 @@ public class HomeUnicefPage extends BasePage {
 
     public void clickAllAreasLink() throws InterruptedException {
         driver.findElement(whatWeDoLinks).click();
-        Thread.sleep(500);
+        Thread.sleep(100);
         String currentUrl = driver.getCurrentUrl();
         Assert.assertEquals("https://www.unicef.org/what-we-do", currentUrl);
     }
@@ -105,18 +95,23 @@ public class HomeUnicefPage extends BasePage {
         }
     }
 
-    public void otherLinks(String elementToClick, String expectedUrl) throws InterruptedException {
+    public void otherLinks(String elementToClick, String expectedUrl) {
         int elementIndex = Integer.parseInt(elementToClick);
 
         List<WebElement> allAreasLinks = driver.findElements(whatWeDoLinks);
 
         if (elementIndex >= 1 && elementIndex <= allAreasLinks.size()) {
             allAreasLinks.get(elementIndex - 1).click();
-            Thread.sleep(400);
+            try {
+                WebDriverWait wait = new WebDriverWait(driver, 2);
+                wait.until(ExpectedConditions.urlToBe(expectedUrl));
+            } catch (TimeoutException e) {
+                System.err.println("Timeout waiting for URL to be: " + expectedUrl);
+            }
             String currentUrl = driver.getCurrentUrl();
             Assert.assertEquals(expectedUrl, currentUrl);
         } else {
-            System.err.println("Error: Element index out of bounds or URL doesn't match");
+            System.err.println("Error: Element index out of bounds");
         }
     }
 
@@ -157,7 +152,7 @@ public class HomeUnicefPage extends BasePage {
 
     public  void clickSearchButton() throws InterruptedException {
         driver.findElement(searchButton).click();
-        Thread.sleep(200);
+        Thread.sleep(100);
     }
 
     public void insertDatainSearchInput() throws InterruptedException {

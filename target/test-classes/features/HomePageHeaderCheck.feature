@@ -140,7 +140,9 @@ Feature: Check if home page and elements load correctly
 
   Scenario: 10 - Click search button
     Given The worldwide home page is loaded
-    When the search button is clicked
+    When the search button is clicked and data is inserted
+    Then the search should show results
+
 
 
 
