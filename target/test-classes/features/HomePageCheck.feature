@@ -23,10 +23,10 @@ Feature: Check if home page and elements load correctly
   Scenario Outline: 05 - Checks if other links on What we do Section are working
     Given The worldwide home page is loaded
     When the user goes into the what we do section
-    Then all the other links should lead to the "<element_to_click>" and "<desired_page>"
+    Then when "<element>" is clicked it should lead to "<desired_page>"
 
     Examples:
-      | element_to_click | desired_page                                                         |
+      | element | desired_page                                                         |
       | 3                | https://www.unicef.org/child-protection                              |
       | 5                | https://www.unicef.org/disabilities                                  |
       | 6                | https://www.unicef.org/environment-and-climate-change                |
@@ -55,5 +55,27 @@ Feature: Check if home page and elements load correctly
       | 39               | https://www.unicef.org/learning-crisis                               |
 
 
+
+  Scenario: 06
+    Given The worldwide home page is loaded
+    When the user goes into the research and reports section
+
+
+  Scenario Outline: 06 - Checks if links on Research and Reports section are working fine
+    Given The worldwide home page is loaded
+    When the user goes into the research and reports section
+    Then when "<element>" is clicked it should lead to "<desired_page>"
+
+    Examples:
+      | element | desired_page                                                         |
+      | 40                | https://www.unicef.org/reports/state-of-worlds-children                              |
+    | 41                | https://www.unicef.org/reports/unicef-annual-report-2022                             |
+    | 42                | https://www.unicef.org/reports/humanitarian-action-children-2022-overview            |
+    | 43                | https://www.unicef.org/reports                                                       |
+    | 46                | https://www.unicef.org/globalinsight/                                                |
+    | 47                | https://www.unicef-irc.org/                                                          |
+    | 48                | https://www.unicef.org/child-rights-convention                                            |
+    | 49                | https://www.unicef.org/emergencies/core-commitments-children                              |
+    | 50                | https://www.unicef.org/sustainable-development-goals                                      | 
 
 

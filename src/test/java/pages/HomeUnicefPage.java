@@ -21,6 +21,8 @@ public class HomeUnicefPage extends BasePage {
 
     private By whatWeDoSection = By.cssSelector("a.dropdown-toggle.is-parent-item > span");
 
+    private By researchAndReportsSection = By.cssSelector(".dropdown-toggle.is-parent-item.active:nth-of-type(2)");
+
     private By whatWeDoLinks = By.cssSelector("ul > li > ul > li > a > span:nth-child(1)");
 
 
@@ -45,6 +47,19 @@ public class HomeUnicefPage extends BasePage {
         Actions actions = new Actions(driver);
         actions.moveToElement(element).build().perform();
     }
+
+    public void hoverResearchAndReportsSection(){
+        WebElement element = driver.findElements(whatWeDoSection).get(1);
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element).build().perform();
+    }
+
+    public void hoverStoriesSection(){
+        WebElement element = driver.findElements(whatWeDoSection).get(1);
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element).build().perform();
+    }
+
 
     public void clickAllAreasLink() throws InterruptedException {
         driver.findElement(whatWeDoLinks).click();
