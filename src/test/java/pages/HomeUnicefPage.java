@@ -58,7 +58,7 @@ public class HomeUnicefPage extends BasePage {
 
         if (allAreasLinks.size() >= 2) {
             allAreasLinks.get(1).click();
-            Thread.sleep(500);
+            Thread.sleep(700);
             String currentUrl = driver.getCurrentUrl();
             Assert.assertEquals("https://www.unicef.org/adolescence", currentUrl);
         } else {
