@@ -163,11 +163,39 @@ Feature: Check if home page and elements load correctly
       | 7       | https://www.unicef.org/stories/how-flexible-funding-saving-lives                                                        |
       | 8       | https://www.unicef.org/parenting/how-talk-your-children-about-conflict-and-war                                          |
 
+  Scenario Outline: 13 - Checks if links in (Unicef's work) middle page section(2) are working fine
+    Given The worldwide home page is loaded
+    Then when "<element>" is clicked in the second half of middle of page it should lead to "<desired_page>"
+
+    Examples:
+      | element | desired_page                                   |
+      | 2       | https://www.unicef.org/what-we-do#protection   |
+      | 3       | https://www.unicef.org/what-we-do#survival     |
+      | 4       | https://www.unicef.org/what-we-do#education    |
+      | 5       | https://www.unicef.org/what-we-do#emergencies  |
+      | 6       | https://www.unicef.org/what-we-do#socialpolicy |
+      | 7       | https://www.unicef.org/what-we-do#gender       |
+      | 8       | https://www.unicef.org/what-we-do#innovation   |
+      | 9       | https://www.unicef.org/what-we-do#supply       |
+      | 10      | https://www.unicef.org/what-we-do#research     |
 
 
+  Scenario Outline: 14 - Checks if links in bottom of page section are working fine
+    Given The worldwide home page is loaded
+    Then when "<element>" is clicked in the bottom of page it should lead to "<desired_page>"
+
+    Examples:
+      | element | desired_page                                         |
+      | 5       | https://www.unicef.org/results                       |
+      | 6       | https://www.unicef.org/parenting/                    |
+      | 7       | https://www.voicesofyouth.org/                       |
+      | 8       | https://www.unicef.org/sustainable-development-goals |
 
 
-
+  Scenario: 15 - Bottom image is displayed
+    Given The worldwide home page is loaded
+    Then the main image should be loaded and displayed
+    And join unicef button should be clickable
 
 
 

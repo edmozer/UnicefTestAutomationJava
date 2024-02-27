@@ -49,6 +49,18 @@ public class HomeElementsCheckSteps extends BaseSteps {
         screenshot();
     }
 
+    @Then("when {string} is clicked in the second half of middle of page it should lead to {string}")
+    public void middle_section_2_links_should_lead_to(String elementToClick, String desiredPage) throws InterruptedException {
+        homePage.clickMiddleSection2Link(elementToClick, desiredPage);
+        screenshot();
+    }
+
+    @Then("when {string} is clicked in the bottom of page it should lead to {string}")
+    public void bottom_page_links_should_lead_to(String elementToClick, String desiredPage) throws InterruptedException {
+        homePage.bottomPageLink(elementToClick, desiredPage);
+        screenshot();
+    }
+
     @When("the user goes into the research and reports section")
     public void the_user_goes_into_the_research_and_reports_section() {
         homePage.hoverResearchAndReportsSection();
@@ -87,8 +99,20 @@ public class HomeElementsCheckSteps extends BaseSteps {
        screenshot();
     }
 
+    @Then("the bottom image should be loaded and displayed")
+    public void the_bottom_image_should_be_loaded_and_displayed() {
+        homePage.isBottomImageDisplayed();
+        screenshot();
+    }
+
     @And("read more button should be clickable")
     public void read_more_button_should_be_clickable() {
+        homePage.isMainReadMoreButtonIsClickable();
+        screenshot();
+    }
+
+    @And("join unicef button should be clickable")
+    public void join_unicef_button_should_be_clickable() {
         homePage.isMainReadMoreButtonIsClickable();
         screenshot();
     }

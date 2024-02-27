@@ -36,6 +36,13 @@ public class HomeUnicefPage extends BasePage {
 
     private By middleSectionLinks = By.cssSelector("div > a > div > span");
 
+    private By middleSection2Links = By.cssSelector("div > div > p > a");
+
+    private  By bottomPageLinks = By.cssSelector("h4.h4.white-bg.text-grey1");
+
+    private By joinUnicefButton = By.cssSelector("a.btn.btn-donate.white-bg.accent-action.white-contained[data-action='/take-action'][data-label='Join UNICEF']");
+
+
 
 
 
@@ -152,25 +159,83 @@ public class HomeUnicefPage extends BasePage {
                         return;
                     }
                 }
-                System.err.println("Error: Tab with URL " + expectedUrl + " not found");
+                throw new AssertionError("Error: Tab with URL " + expectedUrl + " not found");
             } else {
                 Assert.assertEquals(expectedUrl, currentUrl);
             }
         } else {
-            System.err.println("Error: Element index out of bounds");
+            throw new AssertionError("Error: Element index out of bounds");
         }
     }
 
-    public void childRightsLink() {
-        List<WebElement> allAreasLinks = driver.findElements(whatWeDoLinks);
 
-        if (allAreasLinks.size() >= 2) {
-            allAreasLinks.get(3).click();
-            String currentUrl3 = driver.getCurrentUrl();
-            Assert.assertEquals("https://www.unicef.org/child-rights-convention", currentUrl3);
+    public void clickMiddleSection2Link(String elementToClick, String expectedUrl) throws InterruptedException {
+        Thread.sleep(100);
+        int elementIndex = Integer.parseInt(elementToClick);
+        List<WebElement> allAreasLinks = driver.findElements(middleSection2Links);
+
+        if (elementIndex >= 1 && elementIndex <= allAreasLinks.size()) {
+            WebElement element = allAreasLinks.get(elementIndex - 1);
+
+            try {
+                ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+                element.click();
+                WebDriverWait wait = new WebDriverWait(driver, 10);
+                wait.until(ExpectedConditions.urlToBe(expectedUrl));
+            } catch (TimeoutException e) {
+                System.err.println("Timeout waiting for URL to be: " + expectedUrl);
+            } catch (Exception e) {
+                JavascriptExecutor executor = (JavascriptExecutor) driver;
+                executor.executeScript("arguments[0].click();", element);
+            }
+            Thread.sleep(500);
+            String currentUrl = driver.getCurrentUrl();
+            if (!expectedUrl.equals(currentUrl)) {
+                throw new AssertionError("Error: Current URL " + currentUrl + " does not match expected URL " + expectedUrl);
+            } else {
+                Assert.assertEquals(expectedUrl, currentUrl);
+            }
         } else {
+            throw new AssertionError("Error: Element index out of bounds");
+        }
+    }
 
-            System.err.println("Error: Url doesn't match");
+    public void bottomPageLink(String elementToClick, String expectedUrl) throws InterruptedException {
+        Thread.sleep(100);
+        int elementIndex = Integer.parseInt(elementToClick);
+        List<WebElement> allAreasLinks = driver.findElements(bottomPageLinks);
+
+        if (elementIndex >= 1 && elementIndex <= allAreasLinks.size()) {
+            WebElement element = allAreasLinks.get(elementIndex - 1);
+
+            try {
+                ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+                element.click();
+                WebDriverWait wait = new WebDriverWait(driver, 10);
+                wait.until(ExpectedConditions.urlToBe(expectedUrl));
+            } catch (TimeoutException e) {
+                System.err.println("Timeout waiting for URL to be: " + expectedUrl);
+            } catch (Exception e) {
+                JavascriptExecutor executor = (JavascriptExecutor) driver;
+                executor.executeScript("arguments[0].click();", element);
+            }
+            Thread.sleep(500);
+            String currentUrl = driver.getCurrentUrl();
+            if (!expectedUrl.equals(currentUrl)) {
+                // Sometimes the links will open in new tabs, this will check if another tab has beenn opened with the expected url
+                Set<String> allTabs = driver.getWindowHandles();
+                for (String tab : allTabs) {
+                    driver.switchTo().window(tab);
+                    currentUrl = driver.getCurrentUrl();
+                    if (expectedUrl.equals(currentUrl)) {
+                        Assert.assertEquals(expectedUrl, currentUrl);
+                        return;
+                    }
+                }
+                throw new AssertionError("Error: Tab with URL " + expectedUrl + " not found");
+            } else {
+                Assert.assertEquals(expectedUrl, currentUrl);
+            }
         }
     }
 
@@ -222,9 +287,25 @@ public class HomeUnicefPage extends BasePage {
         }
     }
 
+    public void isBottomImageDisplayed(){
+        List<WebElement> mainImageElements = driver.findElements(mainImage);
+        if (!mainImageElements.isEmpty()) {
+            WebElement mainImageElement = mainImageElements.get(1);
+            Assert.assertTrue("Main image is not displayed.", mainImageElement.isDisplayed());
+        } else {
+            Assert.fail("Main image element not found.");
+        }
+    }
+
     public void isMainReadMoreButtonIsClickable() {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         WebElement button = wait.until(ExpectedConditions.elementToBeClickable(readMoreButton));
+        Assert.assertNotNull("Read more button is clickable", button);
+    }
+
+    public void isJoinUnicefButtonIsClickable() {
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebElement button = wait.until(ExpectedConditions.elementToBeClickable(joinUnicefButton));
         Assert.assertNotNull("Read more button is clickable", button);
     }
 
