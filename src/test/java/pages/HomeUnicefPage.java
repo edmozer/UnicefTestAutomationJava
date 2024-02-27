@@ -1,10 +1,7 @@
 package pages;
 
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import runner.base_class.BasePage;
@@ -12,6 +9,7 @@ import runner.base_class.BasePage;
 import org.openqa.selenium.interactions.Actions;
 
 import java.util.List;
+import java.util.Set;
 
 public class HomeUnicefPage extends BasePage {
 
@@ -31,6 +29,14 @@ public class HomeUnicefPage extends BasePage {
     private By searchInput = By.id("edit-query-inpt-pop");
 
     private By numberOfResults = By.className("number-of-results");
+
+    private By mainImage = By.cssSelector(".b-lazy");
+
+    private By readMoreButton = By.cssSelector("a.btn.btn-donate[data-action='/emergencies/children-gaza-need-lifesaving-support'][data-label='Read more']");
+
+    private By middleSectionLinks = By.cssSelector("div > a > div > span");
+
+
 
 
 
@@ -115,6 +121,45 @@ public class HomeUnicefPage extends BasePage {
         }
     }
 
+    public void clickMiddleSectionLink(String elementToClick, String expectedUrl) throws InterruptedException {
+        int elementIndex = Integer.parseInt(elementToClick);
+        List<WebElement> allAreasLinks = driver.findElements(middleSectionLinks);
+
+        if (elementIndex >= 1 && elementIndex <= allAreasLinks.size()) {
+            WebElement element = allAreasLinks.get(elementIndex - 1);
+
+            try {
+                ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+                element.click();
+                WebDriverWait wait = new WebDriverWait(driver, 10);
+                wait.until(ExpectedConditions.urlToBe(expectedUrl));
+            } catch (TimeoutException e) {
+                System.err.println("Timeout waiting for URL to be: " + expectedUrl);
+            } catch (Exception e) {
+                JavascriptExecutor executor = (JavascriptExecutor) driver;
+                executor.executeScript("arguments[0].click();", element);
+            }
+            Thread.sleep(500);
+            String currentUrl = driver.getCurrentUrl();
+            if (!expectedUrl.equals(currentUrl)) {
+                // Sometimes the links will open in new tabs, this will check if another tab has beenn opened with the expected url
+                Set<String> allTabs = driver.getWindowHandles();
+                for (String tab : allTabs) {
+                    driver.switchTo().window(tab);
+                    currentUrl = driver.getCurrentUrl();
+                    if (expectedUrl.equals(currentUrl)) {
+                        Assert.assertEquals(expectedUrl, currentUrl);
+                        return;
+                    }
+                }
+                System.err.println("Error: Tab with URL " + expectedUrl + " not found");
+            } else {
+                Assert.assertEquals(expectedUrl, currentUrl);
+            }
+        } else {
+            System.err.println("Error: Element index out of bounds");
+        }
+    }
 
     public void childRightsLink() {
         List<WebElement> allAreasLinks = driver.findElements(whatWeDoLinks);
@@ -166,4 +211,21 @@ public class HomeUnicefPage extends BasePage {
         String text = element.getText();
         return text.contains("results");
     }
+
+    public void isMainImageDisplayed(){
+        List<WebElement> mainImageElements = driver.findElements(mainImage);
+        if (!mainImageElements.isEmpty()) {
+            WebElement mainImageElement = mainImageElements.get(0);
+            Assert.assertTrue("Main image is not displayed.", mainImageElement.isDisplayed());
+        } else {
+            Assert.fail("Main image element not found.");
+        }
+    }
+
+    public void isMainReadMoreButtonIsClickable() {
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebElement button = wait.until(ExpectedConditions.elementToBeClickable(readMoreButton));
+        Assert.assertNotNull("Read more button is clickable", button);
+    }
+
 }
