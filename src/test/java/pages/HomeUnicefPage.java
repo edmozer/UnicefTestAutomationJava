@@ -13,33 +13,20 @@ import java.util.Set;
 
 public class HomeUnicefPage extends BasePage {
 
-
+// In this section you will find selectors for the elements used in the code
     private By donateButton = By.cssSelector("a[data-label='Donate']");
-
     private By pressCentreButton = By.id("block-unicef-base-secondary-menu");
-
-    private By whatWeDoSection = By.cssSelector("a.dropdown-toggle.is-parent-item > span");
-
+    private By headerMenusSection = By.cssSelector("a.dropdown-toggle.is-parent-item > span");
     private By researchAndReportsSection = By.cssSelector(".dropdown-toggle.is-parent-item.active:nth-of-type(2)");
-
-    private By whatWeDoLinks = By.cssSelector("ul > li > ul > li > a > span:nth-child(1)");
-
+    private By hoveredMenuLinks = By.cssSelector("ul > li > ul > li > a > span:nth-child(1)");
     private  By searchButton = By.className("btn--input-search");
-
     private By searchInput = By.id("edit-query-inpt-pop");
-
     private By numberOfResults = By.className("number-of-results");
-
     private By mainImage = By.cssSelector(".b-lazy");
-
     private By readMoreButton = By.cssSelector("a.btn.btn-donate[data-action='/emergencies/children-gaza-need-lifesaving-support'][data-label='Read more']");
-
     private By middleSectionLinks = By.cssSelector("div > a > div > span");
-
     private By middleSection2Links = By.cssSelector("div > div > p > a");
-
     private  By bottomPageLinks = By.cssSelector("h4.h4.white-bg.text-grey1");
-
     private By joinUnicefButton = By.cssSelector("a.btn.btn-donate.white-bg.accent-action.white-contained[data-action='/take-action'][data-label='Join UNICEF']");
 
 
@@ -47,55 +34,58 @@ public class HomeUnicefPage extends BasePage {
 
 
 
-
+// Here are the functions used to navigate, assert, validade and etc...
 
     public void GetHomePage() {
+        //This gets the home page open
         driver.get("https://www.unicef.org/");
     }
 
+    // This next one hovers the pointer over the What We Do Section and therefore another menu is dropped down
+    // The following functions will also hover, but in different elements
     public void hoverWhatWeDoSection(){
-        WebElement element = driver.findElement(whatWeDoSection);
+        WebElement element = driver.findElement(headerMenusSection);
         Actions actions = new Actions(driver);
         actions.moveToElement(element).build().perform();
     }
 
     public void hoverResearchAndReportsSection(){
-        WebElement element = driver.findElements(whatWeDoSection).get(1);
+        WebElement element = driver.findElements(headerMenusSection).get(1);
         Actions actions = new Actions(driver);
         actions.moveToElement(element).build().perform();
     }
 
     public void hoverStoriesSection() throws InterruptedException {
-        WebElement element = driver.findElements(whatWeDoSection).get(2);
+        WebElement element = driver.findElements(headerMenusSection).get(2);
         Thread.sleep(100);
         Actions actions = new Actions(driver);
         actions.moveToElement(element).build().perform();
     }
 
     public void hoverAboutUnicefSection() throws InterruptedException {
-        WebElement element = driver.findElements(whatWeDoSection).get(3);
+        WebElement element = driver.findElements(headerMenusSection).get(3);
         Thread.sleep(100);
         Actions actions = new Actions(driver);
         actions.moveToElement(element).build().perform();
     }
 
     public void hoverTakeActionSection() throws InterruptedException {
-        WebElement element = driver.findElements(whatWeDoSection).get(4);
+        WebElement element = driver.findElements(headerMenusSection).get(4);
         Thread.sleep(100);
         Actions actions = new Actions(driver);
         actions.moveToElement(element).build().perform();
     }
 
-
+// clickAllAreasLink and clickAdolescentsLink will click and validate on link in the menu that was dropped after hover
     public void clickAllAreasLink() throws InterruptedException {
-        driver.findElement(whatWeDoLinks).click();
+        driver.findElement(hoveredMenuLinks).click();
         Thread.sleep(100);
         String currentUrl = driver.getCurrentUrl();
         Assert.assertEquals("https://www.unicef.org/what-we-do", currentUrl);
     }
 
     public void clickAdolescentsLink() throws InterruptedException {
-        List<WebElement> allAreasLinks = driver.findElements(whatWeDoLinks);
+        List<WebElement> allAreasLinks = driver.findElements(hoveredMenuLinks);
 
         if (allAreasLinks.size() >= 2) {
             allAreasLinks.get(1).click();
@@ -107,11 +97,12 @@ public class HomeUnicefPage extends BasePage {
             System.err.println("Error: Url doesn't match");
         }
     }
-
+// This will click on other links and validate them. They are selected by the positions in the array.
+// The position is defined by elementToClick parameter and expectedUrl asserts url of the clicked element
     public void otherLinks(String elementToClick, String expectedUrl) {
         int elementIndex = Integer.parseInt(elementToClick);
 
-        List<WebElement> allAreasLinks = driver.findElements(whatWeDoLinks);
+        List<WebElement> allAreasLinks = driver.findElements(hoveredMenuLinks);
 
         if (elementIndex >= 1 && elementIndex <= allAreasLinks.size()) {
             allAreasLinks.get(elementIndex - 1).click();
@@ -127,7 +118,8 @@ public class HomeUnicefPage extends BasePage {
             System.err.println("Error: Element index out of bounds");
         }
     }
-
+// Moving on, the middle of the page is divided in two sections, these two functions will validate them
+    // Validation will work similarly to previous function
     public void clickMiddleSectionLink(String elementToClick, String expectedUrl) throws InterruptedException {
         int elementIndex = Integer.parseInt(elementToClick);
         List<WebElement> allAreasLinks = driver.findElements(middleSectionLinks);
@@ -167,7 +159,6 @@ public class HomeUnicefPage extends BasePage {
             throw new AssertionError("Error: Element index out of bounds");
         }
     }
-
 
     public void clickMiddleSection2Link(String elementToClick, String expectedUrl) throws InterruptedException {
         Thread.sleep(100);
