@@ -138,15 +138,64 @@ Feature: Check if home page and elements load correctly
     | 93      | https://www.unicef.org/learning-crisis                       |
     | 94      | https://www.unicef.org/child-health-and-survival             |
 
-  Scenario: 10 - Click search button
+  Scenario: 10 - Click search button and execute search
     Given The worldwide home page is loaded
     When the search button is clicked and data is inserted
     Then the search should show results
 
+  Scenario: 11 - Main image is displayed
+    Given The worldwide home page is loaded
+    Then the main image should be loaded and displayed
+    And read more button should be clickable
+
+  Scenario Outline: 12 - Checks if links in middle page section are working fine
+    Given The worldwide home page is loaded
+    Then when "<element>" is clicked in the middle of page it should lead to "<desired_page>"
+
+    Examples:
+      | element | desired_page                                                                                                            |
+      | 1       | https://www.unicef.org/press-releases/statement-principals-inter-agency-standing-committee-civilians-gaza-extreme-peril |
+      | 2       | https://www.unicef.org/emergencies/war-ukraine-pose-immediate-threat-children                                           |
+      | 3       | https://www.unicef.org/emergencies/emergency-response-sudan                                                             |
+      | 4       | https://www.unicef.org/press-releases/unicef-and-wfp-demand-action-protect-children-and-unfettered-humanitarian-access  |
+      | 5       | https://www.voicesofyouth.org/                                                                                          |
+      | 6       | https://www.unicef.org/stories/picturing-future-amid-climate-crisis                                                     |
+      | 7       | https://www.unicef.org/stories/how-flexible-funding-saving-lives                                                        |
+      | 8       | https://www.unicef.org/parenting/how-talk-your-children-about-conflict-and-war                                          |
+
+  Scenario Outline: 13 - Checks if links in (Unicef's work) middle page section(2) are working fine
+    Given The worldwide home page is loaded
+    Then when "<element>" is clicked in the second half of middle of page it should lead to "<desired_page>"
+
+    Examples:
+      | element | desired_page                                   |
+      | 2       | https://www.unicef.org/what-we-do#protection   |
+      | 3       | https://www.unicef.org/what-we-do#survival     |
+      | 4       | https://www.unicef.org/what-we-do#education    |
+      | 5       | https://www.unicef.org/what-we-do#emergencies  |
+      | 6       | https://www.unicef.org/what-we-do#socialpolicy |
+      | 7       | https://www.unicef.org/what-we-do#gender       |
+      | 8       | https://www.unicef.org/what-we-do#innovation   |
+      | 9       | https://www.unicef.org/what-we-do#supply       |
+      | 10      | https://www.unicef.org/what-we-do#research     |
 
 
+  Scenario Outline: 14 - Checks if links in bottom of page section are working fine
+    Given The worldwide home page is loaded
+    Then when "<element>" is clicked in the bottom of page it should lead to "<desired_page>"
+
+    Examples:
+      | element | desired_page                                         |
+      | 5       | https://www.unicef.org/results                       |
+      | 6       | https://www.unicef.org/parenting/                    |
+      | 7       | https://www.voicesofyouth.org/                       |
+      | 8       | https://www.unicef.org/sustainable-development-goals |
 
 
+  Scenario: 15 - Bottom image is displayed
+    Given The worldwide home page is loaded
+    Then the main image should be loaded and displayed
+    And join unicef button should be clickable
 
 
 
