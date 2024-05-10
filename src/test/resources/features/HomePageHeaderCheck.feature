@@ -93,24 +93,24 @@ Feature: Check if home page and elements load correctly
 
     Examples:
       | element | desired_page                                                      |
-      | 66      | https://www.unicef.org/about-unicef                               |
-      | 67      | https://www.unicef.org/history                                    |
-      | 68      | https://www.unicef.org/results                                    |
-      | 69      | https://www.unicef.org/reports/unicef-strategic-plan-2022-2025    |
-      | 70      | https://www.unicef.org/transparency                               |
-      | 71      | https://www.unicef.org/auditandinvestigation/                     |
-      | 72      | https://www.unicef.org/careers/                                   |
-      | 73      | https://www.unicef.org/media/experts                              |
-      | 74      | https://www.unicef.org/executiveboard/                            |
-      | 75      | https://www.unicef.org/goodwill-ambassadors                       |
-      | 76      | https://www.unicef.org/where-we-work                              |
-      | 77      | https://www.unicef.org/where-we-work#east-asia-and-the-pacific    |
-      | 78      | https://www.unicef.org/where-we-work#eastern-and-southern-africa  |
-      | 79      | https://www.unicef.org/where-we-work#europe-and-central-asia      |
-      | 80      | https://www.unicef.org/where-we-work#latin-america-and-caribbean  |
-      | 81      | https://www.unicef.org/where-we-work#middle-east-and-north-africa |
-      | 82      | https://www.unicef.org/where-we-work#south-asia                   |
-      | 83      | https://www.unicef.org/where-we-work#west-and-central-africa      |
+      | 74     | https://www.unicef.org/about-unicef                               |
+      | 75      | https://www.unicef.org/history                                    |
+      | 76      | https://www.unicef.org/results                                    |
+      | 77      | https://www.unicef.org/reports/unicef-strategic-plan-2022-2025    |
+      | 78      | https://www.unicef.org/transparency                               |
+      | 79      | https://www.unicef.org/auditandinvestigation/                     |
+      | 80      | https://www.unicef.org/careers/                                   |
+      | 81      | https://www.unicef.org/media/experts                              |
+      | 82      | https://www.unicef.org/executiveboard/                            |
+      | 83      | https://www.unicef.org/goodwill-ambassadors                       |
+      | 84      | https://www.unicef.org/where-we-work                              |
+      | 85      | https://www.unicef.org/where-we-work#east-asia-and-the-pacific    |
+      | 86      | https://www.unicef.org/where-we-work#eastern-and-southern-africa  |
+      | 87      | https://www.unicef.org/where-we-work#europe-and-central-asia      |
+      | 88      | https://www.unicef.org/where-we-work#latin-america-and-caribbean  |
+      | 89      | https://www.unicef.org/where-we-work#middle-east-and-north-africa |
+      | 90      | https://www.unicef.org/where-we-work#south-asia                   |
+      | 91      | https://www.unicef.org/where-we-work#west-and-central-africa      |
 
 
 
