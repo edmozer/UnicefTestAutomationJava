@@ -62,15 +62,13 @@ Feature: Check if home page and elements load correctly
 
     Examples:
       | element | desired_page                                                              |
-      | 40      | https://www.unicef.org/reports/state-of-worlds-children                   |
-      | 41      | https://www.unicef.org/reports/unicef-annual-report-2022                  |
-      | 42      | https://www.unicef.org/reports/humanitarian-action-children-2022-overview |
-      | 43      | https://www.unicef.org/reports                                            |
-      | 46      | https://www.unicef.org/globalinsight/                                     |
-      | 47      | https://www.unicef-irc.org/                                               |
-      | 48      | https://www.unicef.org/child-rights-convention                            |
-      | 49      | https://www.unicef.org/emergencies/core-commitments-children              |
-      | 50      | https://www.unicef.org/sustainable-development-goals                      |
+      | 41      | https://www.unicef.org/reports/state-of-worlds-children                   |
+      | 42      | https://www.unicef.org/reports/unicef-annual-report-2022                  |
+      | 43      | https://www.unicef.org/reports/humanitarian-action-children-2024-overview |
+      | 44      | https://www.unicef.org/reports                                            |
+      | 47      | https://www.unicef.org/child-rights-convention                                       |
+      | 48      | https://www.unicef.org/emergencies/core-commitments-children                                         |
+      | 49      | https://www.unicef.org/sustainable-development-goals                    |
 
   Scenario Outline: 07 - Checks if links on Stories section are working fine
     Given The worldwide home page is loaded
@@ -79,19 +77,13 @@ Feature: Check if home page and elements load correctly
 
     Examples:
       | element | desired_page                                                                  |
-      | 51      | https://www.unicef.org/stories                                                |
-      | 52      | https://www.unicef.org/stories#facts                                          |
-      | 53      | https://www.unicef.org/stories#photo                                          |
-      | 54      | https://www.unicef.org/emergencies                                            |
-      | 55      | https://www.unicef.org/emergencies/delivering-support-afghanistans-children   |
-      | 57      | https://www.unicef.org/emergencies/rohingya-crisis                            |
-      | 58      | https://www.unicef.org/emergencies/emergency-response-sudan                   |
-      | 59      | https://www.unicef.org/emergencies/syrian-crisis                              |
-      | 60      | https://www.unicef.org/emergencies/war-ukraine-pose-immediate-threat-children |
-      | 61      | https://www.unicef.org/emergencies/yemen-crisis                               |
-      | 62      | https://www.unicef.org/blog                                                   |
-      | 63      | https://www.unicef-irc.org/evidence-for-action/                               |
-      | 65      | https://www.voicesofyouth.org/                                                |
+      | 51      | https://www.unicef.org/stories#facts                                          |
+      | 52      | https://www.unicef.org/stories#photo                                          |
+      | 54      | https://www.unicef.org/emergencies/delivering-support-afghanistans-children   |
+      | 55      | https://www.unicef.org/emergencies/crisis-central-african-republic            |
+      | 57      | https://www.unicef.org/emergencies/children-gaza-need-lifesaving-support      |
+      | 58      | https://www.unicef.org/emergencies/crisis-haiti                               |
+
 
 
   Scenario Outline: 08 - Checks if links on About Unicef section are working fine
@@ -101,24 +93,24 @@ Feature: Check if home page and elements load correctly
 
     Examples:
       | element | desired_page                                                      |
-      | 66      | https://www.unicef.org/about-unicef                               |
-      | 67      | https://www.unicef.org/history                                    |
-      | 68      | https://www.unicef.org/results                                    |
-      | 69      | https://www.unicef.org/reports/unicef-strategic-plan-2022-2025    |
-      | 70      | https://www.unicef.org/transparency                               |
-      | 71      | https://www.unicef.org/auditandinvestigation/                     |
-      | 72      | https://www.unicef.org/careers/                                   |
-      | 73      | https://www.unicef.org/media/experts                              |
-      | 74      | https://www.unicef.org/executiveboard/                            |
-      | 75      | https://www.unicef.org/goodwill-ambassadors                       |
-      | 76      | https://www.unicef.org/where-we-work                              |
-      | 77      | https://www.unicef.org/where-we-work#east-asia-and-the-pacific    |
-      | 78      | https://www.unicef.org/where-we-work#eastern-and-southern-africa  |
-      | 79      | https://www.unicef.org/where-we-work#europe-and-central-asia      |
-      | 80      | https://www.unicef.org/where-we-work#latin-america-and-caribbean  |
-      | 81      | https://www.unicef.org/where-we-work#middle-east-and-north-africa |
-      | 82      | https://www.unicef.org/where-we-work#south-asia                   |
-      | 83      | https://www.unicef.org/where-we-work#west-and-central-africa      |
+      | 74     | https://www.unicef.org/about-unicef                               |
+      | 75      | https://www.unicef.org/history                                    |
+      | 76      | https://www.unicef.org/results                                    |
+      | 77      | https://www.unicef.org/reports/unicef-strategic-plan-2022-2025    |
+      | 78      | https://www.unicef.org/transparency                               |
+      | 79      | https://www.unicef.org/auditandinvestigation/                     |
+      | 80      | https://www.unicef.org/careers/                                   |
+      | 81      | https://www.unicef.org/media/experts                              |
+      | 82      | https://www.unicef.org/executiveboard/                            |
+      | 83      | https://www.unicef.org/goodwill-ambassadors                       |
+      | 84      | https://www.unicef.org/where-we-work                              |
+      | 85      | https://www.unicef.org/where-we-work#east-asia-and-the-pacific    |
+      | 86      | https://www.unicef.org/where-we-work#eastern-and-southern-africa  |
+      | 87      | https://www.unicef.org/where-we-work#europe-and-central-asia      |
+      | 88      | https://www.unicef.org/where-we-work#latin-america-and-caribbean  |
+      | 89      | https://www.unicef.org/where-we-work#middle-east-and-north-africa |
+      | 90      | https://www.unicef.org/where-we-work#south-asia                   |
+      | 91      | https://www.unicef.org/where-we-work#west-and-central-africa      |
 
 
 
@@ -129,24 +121,73 @@ Feature: Check if home page and elements load correctly
 
     Examples:
       | element | desired_page                                                      |
-      | 86      | https://www.unicef.org/careers/                              |
-    | 87      | https://www.unicef.org/partnerships                          |
-    | 89      | https://www.unicef.org/careers/volunteers-unicef             |
-    | 90      | https://www.unicef.org/world-childrens-day                   |
-    | 91      | https://www.unicef.org/climate-action                        |
-    | 92      | https://www.unicef.org/on-my-mind                            |
-    | 93      | https://www.unicef.org/learning-crisis                       |
-    | 94      | https://www.unicef.org/child-health-and-survival             |
+      | 94      | https://www.unicef.org/careers/                              |
+    | 95      | https://www.unicef.org/partnerships                          |
+    | 97      | https://www.unicef.org/careers/volunteers-unicef             |
+    | 98      | https://www.unicef.org/world-childrens-day                   |
+    | 99      | https://www.unicef.org/climate-action                        |
+    | 100      | https://www.unicef.org/on-my-mind                            |
+    | 101     | https://www.unicef.org/learning-crisis                       |
+    | 102      | https://www.unicef.org/child-health-and-survival             |
 
-  Scenario: 10 - Click search button
+  Scenario: 10 - Click search button and execute search
     Given The worldwide home page is loaded
     When the search button is clicked and data is inserted
     Then the search should show results
 
+  Scenario: 11 - Main image is displayed
+    Given The worldwide home page is loaded
+    Then the main image should be loaded and displayed
+    And read more button should be clickable
+
+  Scenario Outline: 12 - Checks if links in middle page section are working fine
+    Given The worldwide home page is loaded
+    Then when "<element>" is clicked in the middle of page it should lead to "<desired_page>"
+
+    Examples:
+      | element | desired_page                                                                                                            |
+    | 1       | https://www.unicef.org/press-releases/there-nowhere-safe-go-600000-children-rafah-warns-unicef |
+      | 2       | https://www.unicef.org/emergencies/emergency-response-sudan |
+      | 3       | https://www.unicef.org/blog/bleak-deja-vu-darfur                                                             |
+      | 4       | https://www.unicef.org/emergencies/crisis-haiti  |
+      | 5       | https://www.unicef.org/press-releases/unhcr-and-unicef-condemn-bombardment-displacement-camps-eastern-democratic-republic |
+      | 6       | https://www.unicef.org/stories/i-thought-it-was-end-me-Haiti                                                               |
+      | 7       | https://www.unicef.org/parenting/parenting-in-emergencies                                                     |
+      | 8       | https://www.unicef.org/child-health-and-survival/humanly-possible                                                        |
+
+  Scenario Outline: 13 - Checks if links in (Unicef's work) middle page section(2) are working fine
+    Given The worldwide home page is loaded
+    Then when "<element>" is clicked in the second half of middle of page it should lead to "<desired_page>"
+
+    Examples:
+      | element | desired_page                                   |
+      | 2       | https://www.unicef.org/what-we-do#protection   |
+      | 3       | https://www.unicef.org/what-we-do#survival     |
+      | 4       | https://www.unicef.org/what-we-do#education    |
+      | 5       | https://www.unicef.org/what-we-do#emergencies  |
+      | 6       | https://www.unicef.org/what-we-do#socialpolicy |
+      | 7       | https://www.unicef.org/what-we-do#gender       |
+      | 8       | https://www.unicef.org/what-we-do#innovation   |
+      | 9       | https://www.unicef.org/what-we-do#supply       |
+      | 10      | https://www.unicef.org/what-we-do#research     |
 
 
+  Scenario Outline: 14 - Checks if links in bottom of page section are working fine
+    Given The worldwide home page is loaded
+    Then when "<element>" is clicked in the bottom of page it should lead to "<desired_page>"
+
+    Examples:
+      | element | desired_page                                         |
+      | 6       | https://www.unicef.org/results                       |
+      | 7       | https://www.unicef.org/parenting/                    |
+      | 8       | https://www.voicesofyouth.org/                       |
+      | 9       | https://www.unicef.org/sustainable-development-goals |
 
 
+  Scenario: 15 - Bottom image is displayed
+    Given The worldwide home page is loaded
+    Then the main image should be loaded and displayed
+    And join unicef button should be clickable
 
 
 
