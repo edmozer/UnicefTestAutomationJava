@@ -121,14 +121,14 @@ Feature: Check if home page and elements load correctly
 
     Examples:
       | element | desired_page                                                      |
-      | 86      | https://www.unicef.org/careers/                              |
-    | 87      | https://www.unicef.org/partnerships                          |
-    | 89      | https://www.unicef.org/careers/volunteers-unicef             |
-    | 90      | https://www.unicef.org/world-childrens-day                   |
-    | 91      | https://www.unicef.org/climate-action                        |
-    | 92      | https://www.unicef.org/on-my-mind                            |
-    | 93      | https://www.unicef.org/learning-crisis                       |
-    | 94      | https://www.unicef.org/child-health-and-survival             |
+      | 94      | https://www.unicef.org/careers/                              |
+    | 95      | https://www.unicef.org/partnerships                          |
+    | 97      | https://www.unicef.org/careers/volunteers-unicef             |
+    | 98      | https://www.unicef.org/world-childrens-day                   |
+    | 99      | https://www.unicef.org/climate-action                        |
+    | 100      | https://www.unicef.org/on-my-mind                            |
+    | 101     | https://www.unicef.org/learning-crisis                       |
+    | 102      | https://www.unicef.org/child-health-and-survival             |
 
   Scenario: 10 - Click search button and execute search
     Given The worldwide home page is loaded
@@ -146,14 +146,14 @@ Feature: Check if home page and elements load correctly
 
     Examples:
       | element | desired_page                                                                                                            |
-      | 1       | https://www.unicef.org/press-releases/statement-principals-inter-agency-standing-committee-civilians-gaza-extreme-peril |
-      | 2       | https://www.unicef.org/emergencies/war-ukraine-pose-immediate-threat-children                                           |
-      | 3       | https://www.unicef.org/emergencies/emergency-response-sudan                                                             |
-      | 4       | https://www.unicef.org/press-releases/unicef-and-wfp-demand-action-protect-children-and-unfettered-humanitarian-access  |
-      | 5       | https://www.voicesofyouth.org/                                                                                          |
-      | 6       | https://www.unicef.org/stories/picturing-future-amid-climate-crisis                                                     |
-      | 7       | https://www.unicef.org/stories/how-flexible-funding-saving-lives                                                        |
-      | 8       | https://www.unicef.org/parenting/how-talk-your-children-about-conflict-and-war                                          |
+    | 1       | https://www.unicef.org/press-releases/there-nowhere-safe-go-600000-children-rafah-warns-unicef |
+      | 2       | https://www.unicef.org/emergencies/emergency-response-sudan |
+      | 3       | https://www.unicef.org/blog/bleak-deja-vu-darfur                                                             |
+      | 4       | https://www.unicef.org/emergencies/crisis-haiti  |
+      | 5       | https://www.unicef.org/press-releases/unhcr-and-unicef-condemn-bombardment-displacement-camps-eastern-democratic-republic |
+      | 6       | https://www.unicef.org/stories/i-thought-it-was-end-me-Haiti                                                               |
+      | 7       | https://www.unicef.org/parenting/parenting-in-emergencies                                                     |
+      | 8       | https://www.unicef.org/child-health-and-survival/humanly-possible                                                        |
 
   Scenario Outline: 13 - Checks if links in (Unicef's work) middle page section(2) are working fine
     Given The worldwide home page is loaded
@@ -178,10 +178,10 @@ Feature: Check if home page and elements load correctly
 
     Examples:
       | element | desired_page                                         |
-      | 5       | https://www.unicef.org/results                       |
-      | 6       | https://www.unicef.org/parenting/                    |
-      | 7       | https://www.voicesofyouth.org/                       |
-      | 8       | https://www.unicef.org/sustainable-development-goals |
+      | 6       | https://www.unicef.org/results                       |
+      | 7       | https://www.unicef.org/parenting/                    |
+      | 8       | https://www.voicesofyouth.org/                       |
+      | 9       | https://www.unicef.org/sustainable-development-goals |
 
 
   Scenario: 15 - Bottom image is displayed
